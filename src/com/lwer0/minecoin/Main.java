@@ -12,4 +12,14 @@ import org.bukkit.plugin.java.JavaPlugin;
  * @author Joel
  */
 public class Main extends JavaPlugin {
+    
+    @Override
+    public void onEnable() {
+        getLogger().info("MineCoin plugin enabled correctly!");
+    }
+    
+    @Override
+    public void onDisable() {
+        getLogger().info("MineCoin plugin disabled correctly!");
+    }
 }
