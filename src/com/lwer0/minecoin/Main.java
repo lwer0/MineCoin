@@ -22,4 +22,6 @@ public class Main extends JavaPlugin {
     public void onDisable() {
         getLogger().info("MineCoin plugin disabled correctly!");
     }
+    
+    
 }
