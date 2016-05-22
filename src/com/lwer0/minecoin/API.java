@@ -28,7 +28,7 @@ public class API {
                 Connection c = Main.getConnection();
                 Statement check = (Statement) c.createStatement();
                 
-                check.executeUpdate("INSERT INTO PlayerData (PLAYERNAME, BALANCE) VALUES ('" + p.getName() + "', " + Main.getInCoins() + ");");
+                check.executeUpdate("INSERT INTO PlayerData (PLAYER_UUID, PLAYERNAME, BALANCE) VALUES ('" + p.getUniqueId() + "', '" + p.getName() + "', " + Main.getInCoins() + ");");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
