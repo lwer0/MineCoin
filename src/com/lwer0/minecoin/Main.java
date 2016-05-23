@@ -5,6 +5,7 @@
  */
 package com.lwer0.minecoin;
 
+import static com.lwer0.minecoin.APIs.API.noPerm;
 import com.lwer0.minecoin.Listeners.PlayerJoin;
 import com.mysql.jdbc.Connection;
 import java.io.File;
@@ -12,7 +13,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import net.md_5.bungee.api.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -86,5 +91,17 @@ public class Main extends JavaPlugin {
         FileConfiguration config = instance.getConfig();
         int initialcoins = config.getInt("MineCoins.InitCoins");
         return initialcoins;
+    }
+    
+    @Override
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        Player p = (Player) sender;
+        if(!p.hasPermission("MineCoins.view")) {
+            p.sendMessage(noPerm());
+        } else {
+            if (cmd.getName().equalsIgnoreCase("coins")) {
+            }
+        }
+        return true;
     }
 }
